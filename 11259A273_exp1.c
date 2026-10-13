@@ -1,21 +1,21 @@
 #include <stdio.h>
 #define MAX 100
 void traverse(int arr[], int n) {
- int i;
- printf("Array elements: ");
- for (i = 0; i < n; i++)
- printf("%d ", arr[i]);
- printf("\n");
+   int i;
+   printf("Array elements: ");
+   for (i = 0; i < n; i++)
+    printf("%d ", arr[i]);
+    printf("\n");
 }
-int insert(int arr[], int n, int pos, int value) {
- int i;
- if (n >= MAX) {
- printf("Array is full. Cannot insert.\n");
-return n;
+   int insert(int arr[], int n, int pos, int value) {
+    int i;
+    if (n >= MAX) {
+      printf("Array is full. Cannot insert.\n");
+      return n;
  }
- if (pos < 0 || pos > n) {
- printf("Invalid position.\n");
- return n;
+     if (pos < 0 || pos > n) {
+          printf("Invalid position.\n");
+       return n;
  }
  for (i = n; i > pos; i--)
  arr[i] = arr[i - 1];
@@ -44,27 +44,28 @@ int main() {
  printf("1. Insert\n2. Delete\n3. Traverse\n4. Exit\n");
  printf("Enter your choice: ");
  scanf("%d", &choice);
- switch (choice) {
+     switch (choice) {
  case 1:
- printf("Enter position (0-indexed) and value to insert: ");
- scanf("%d %d", &pos, &value);
- n = insert(arr, n, pos, value);
- traverse(arr, n);
- break; case 2:
- printf("Enter position (0-indexed) to delete: ");
- scanf("%d", &pos);
- n = deleteElement(arr, n, pos);
- traverse(arr, n);
- break;
- case 3:
- traverse(arr, n);
- break;
- case 4:
- printf("Exiting program.\n");
- break;
- default:
- printf("Invalid choice.\n");
- }
- } while (choice != 4);
+    printf("Enter position (0-indexed) and value to insert: ");
+    scanf("%d %d", &pos, &value);
+    n = insert(arr, n, pos, value);
+    traverse(arr, n);
+    break; 
+      case 2:
+         printf("Enter position (0-indexed) to delete: ");
+         scanf("%d", &pos);
+          n = deleteElement(arr, n, pos);
+        traverse(arr, n);
+        break;
+      case 3:
+        traverse(arr, n);
+        break;
+      case 4:
+         printf("Exiting program.\n");
+         break;
+      default:
+          printf("Invalid choice.\n");
+     }
+   } while (choice != 4);
  return 0;
 }
